@@ -1,0 +1,72 @@
+:root {
+    --black: #3e4342;
+    --yellow: #f5c325;
+    --gray: #9c9c97;
+    --white: #f7f7f7;
+  }
+
+html, body {
+    background: var(--white);
+    color: var(--black);
+    margin:0;
+    padding: 0;
+    padding-top: 10px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+body {
+    font-weight: 400;
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background: var(--gray);
+    color: var(--white);
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+h1 {
+    font-size: 20px;
+    text-align:center;
+}
+
+textarea {
+    font-family: 'Press Start 2P', cursive;
+    border: 3px solid black;
+    width: 90%;
+    margin: 20px auto;
+    outline: none;
+    height: 35vh;
+    background-color: var(--white);
+    padding: 10px;
+}
+
+textarea:disabled {
+    background-color: var(--yellow);
+    color: var(--white);
+}
+
+.copyright {
+    margin: 70px;
+    padding: 20px;
+    border-top-style: solid;
+    border-color: var(--gray);
+    color: var(--gray);
+    font-size: 10px;
+    text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+    .copyright {
+        text-align: right;
+    }
+}
