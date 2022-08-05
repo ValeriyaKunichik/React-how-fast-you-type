@@ -1,4 +1,5 @@
 import {useState, useEffect, useRef} from "react"
+import axios from 'axios';
 
 function useWordGame(startingTime = 60) {
     const [text, setText] = useState("")
@@ -21,11 +22,17 @@ function useWordGame(startingTime = 60) {
         setIsTimeRunning(true)
         setTimeRemaining(startingTime)
         setText("")
+        setWordCount(0)
         textBoxRef.current.disabled = false
         textBoxRef.current.focus()
     }
     
     function endGame() {
+        const entry = {
+            text: text
+          }
+      
+        axios.post('http://localhost:5000/entries/add', entry)
         setIsTimeRunning(false)
         setWordCount(calculateWordCount(text))
     }
@@ -36,7 +43,7 @@ function useWordGame(startingTime = 60) {
             setTimeout(() => {
                 setTimeRemaining(time => time - 1)
             }, 1000)
-        } else if(timeRemaining === 0) {
+        } else if(timeRemaining === 0 && isTimeRunning) {
             endGame()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
